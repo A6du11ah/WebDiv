@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profileStyle.css">
+
+    <script src="https://kit.fontawesome.com/6238ddaa77.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Belanosima">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Belanosima">
+
+    <script type="module" src="profileScript.js" defer></script>
+
+</head>
+
+<body>
+    <div class="edit-pop" id="edit-pop">
+        <!-- <img src="Untitled.jpg" alt="">
+        <button id="change-pic">Change profile picture</button> -->
+        <div class="change-profile">
+            <form>
+                <input type="text" name="txt" placeholder="New Name" required="" id="new-name" value="">
+                <input type="email" name="email" placeholder="New Email" required="" id="new-email" value="">
+                <input type="password" name="pswd" placeholder="New Password" required="" id="new-password" value="">
+            </form>
+        </div>
+        <button id="save-edit">Save changes</button>
+    </div>
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-picture">
+                <img src="Untitled.jpg" alt="" id="the-profile-picture">
+            </div>
+            <div class="without-picture">
+                <div class="name-and-buttons">
+                    <div class="profile-info">
+                        <div class="user-name">
+                            <h1 id="full-name-id"></h1><br>
+                            <h3 id="user-name-id">Profile User Name</h1>
+                        </div>
+                    </div>
+                    <div class="edit-and-add">
+                        <div class="add-option">
+                            <button id="button-to-add" class="custom-btn">
+                                <i class="fa-sharp fa-solid fa-plus fa-beat"></i> <strong>Create new</strong>
+                            </button>
+                        </div>
+                        <div class="edit-profile">
+                            <button id="button-to-edit" class="custom-btn">
+                                <i class="fa-duotone fa-user-pen"></i> <strong>Edit profile</strong>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-nav">
+                    <button class="tab_btn"><strong>Your Projects</strong></button>
+                    <!-- <button class="tab_btn"><strong>Completed Projects</strong></button> -->
+                </div>
+            </div>
+        </div>
+        <div class="profile-body">
+            <div class="left-side">
+                <div id="logout-btn">
+                    <button id="logout">
+                        <i class="fa-duotone fa-right-from-bracket"></i>
+                        <strong>Logout</strong>
+                    </button>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="right-body">
+                    <div class="content" id="ongoing-project-tab">
+                        <!-- <h2>Your projects will be shown here</h2> -->
+                        <section id="ongoing">
+                            <div class="outer-wrapper">
+                                <div class="inner-wrapper" id="inner-wrapper">
+
+                                </div>
+                            </div>
+                            <!-- <div class="pseduo-track"></div> -->
+                        </section>
+                    </div>
+                    <!-- <div class="content" id="completed-project-tab">
+                        <section>
+                            <div class="outer-wrapper">
+                                <div class="inner-wrapper">
+
+                                </div>
+                            </div>
+                        </section>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!-- 
+<div class="pseudo-item">
+    <div class="image-place">
+        
+    </div>
+    <div class="intro">
+        <p>Project-1</p>
+    </div>
+</div>
+-->

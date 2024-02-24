@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in/Up modal</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js" defer></script>
+
+</head>
+
+<body>
+    <div class="body-of-modal">
+
+        <div class="main">
+
+            <input type="checkbox" id="chk" aria-hidden="true">
+
+            <div class="signup">
+                <form id="sign-up-form" >
+                    <label id="sign-up" for="chk" aria-hidden="true">Sign up</label>
+                    <input type="text" placeholder="Full name"  id="fullname">
+                    <input type="text" placeholder="User name (Only numbers and letters)"  id="username">
+                    <span id="error-in-user-name"></span>
+                    <input type="email" placeholder="Email"  id="email">
+                    <input type="password" placeholder="Password"  id="password">
+                    <a href="#" id="sign-up-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Sign up
+                    </a>
+                </form>
+            </div>
+
+            <div class="login">
+                <form id="log-in-form">
+                    <label id="log-in" for="chk" aria-hidden="true">Login</label>
+                    <input type="text" placeholder="User name"  id="username-login">
+                    <input type="password" placeholder="Password"  id="password-login">
+                    <a href="#" id="log-in-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Login
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

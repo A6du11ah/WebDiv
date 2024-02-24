@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Webdiv</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- <link
+      rel="stylesheet"
+      href="./fontawesome-free-6.4.0-web/css/fontawesome.css"
+    />
+    <link rel="stylesheet" href="./fontawesome-free-6.4.0-web/css/brands.css" />
+    <link rel="stylesheet" href="./fontawesome-free-6.4.0-web/css/solid.css" /> -->
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="index.js" defer></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar sticky-top navbar-expand-lg" style="background-color: #0c2233; height: 3rem">
+    <a class="navbar-brand fw-bold" href="#" style="color: #fff">
+      <img class="m-2" src="img/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="webdiv logo" />
+      webdiv
+    </a>
+
+    <div class="navbar mx-auto justify-content-center" id="navbarCenteredExample">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" style="color: #fff">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="trending.html" style="color: #ffffff79">Trending</a>
+        </li>
+      </ul>
+    </div>
+    <a class="nav-item nav-link btn-warning me-3 py-1 rounded-pill" style="color: #0c2233" href="#" role="button"
+      id="login-signup-button">Login / Sign up</a>
+    <!-- <a
+        class="nav-item nav-link btn-warning me-3 py-1 rounded-pill"
+        style="color: #0c2233"
+        href="#"
+        role="button"
+        >Sign Up</a
+      > -->
+  </nav>
+  <div class="p-5 mb-4" style="background-color: #065471">
+    <div class="container-fluid">
+      <div class="row p-3 pb-sm-0">
+        <div class="col-lg-6 p-5" style="padding-top: 20rem">
+          <h1 class="display-5 fs-0 fw-bold text-white">
+            <p class="text-wrap lh-sm pt-4" style="width: 18rem">
+              Learning
+              <span class="text-nowrap">web-development,</span> reimagined.
+            </p>
+          </h1>
+          <p class="fs-3 mb-3 text-white-50 lead">
+            Build your website with our gui-to-code technique.
+          </p>
+          <a href="#" class="btn btn-warning rounded-pill" style="color: #0c2233" role="button">
+            Get Started
+          </a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="container d-flex align-items-center" style="
+                border-top-left-radius: 100%;
+                border-top-right-radius: 100%;
+                width: 40rem;
+                height: 40rem;
+                background-color: #0a90ab89;
+              ">
+            <img class="img-fluid align-content-end pb-0" src="img/hero.png" alt="teamwork hero banner illustration" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--- Three Column Section -->
+  <div class="container-fluid p-3">
+    <div class="row welcome text-center text-bold">
+      <div class="col-12">
+        <h2 class="display-4 pb-4 fw-bold" style="color: #0c2233">
+          Features
+        </h2>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <img class="mb-3" src="./img/brain-solid.svg" style="height: 4rem" />
+        <h3 class="py-3 display-6 fw-normal" style="color: #0c2233">
+          Interactive Learning
+        </h3>
+        <p class="p-3 fs-5" style="color: #0c2233">
+          Mix and match various layouts and components and see the effect on
+          the code.
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <img class="mb-3" src="./img/arrow-pointer-solid.svg" style="height: 4rem" />
+        <h3 class="py-3 display-6 fw-normal" style="color: #0c2233">
+          Intuitive UI
+        </h3>
+        <p class="p-3 fs-5" style="color: #0c2233">
+          Simple, user-friendly interface so you dont feel intimidated by the
+          learning curve.
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <img src="./img/face-laugh-beam-regular.svg" class="mb-3" style="height: 4rem" />
+        <h3 class="py-3 display-6 fw-normal" style="color: #0c2233">
+          Zero Setup
+        </h3>
+        <p class="p-3 fs-5" style="color: #0c2233">
+          Saves the time and hassle of setting up environments and editors
+          suited to your device.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Meet the team  -->
+  <div class="container-fluid" style="background-color: #ffc045">
+    <div class="row welcome text-center m-auto">
+      <div class="col-12">
+        <h2 class="display-4 py-4 fw-bold">Meet the team</h2>
+      </div>
+    </div>
+
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+      </div>
+
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner" style="background-color: #ffc045">
+        <div class="carousel-item active">
+          <div class="container">
+            <div class="row pb-5">
+              <div class="col-12 text-center">
+                <img class="rounded-circle p-3" src="img/abdullah.jpg" alt="team member"
+                  style="width: 10rem; height: 10rem" />
+                <p class="fs-3 display-5 mb-0 fw-normal">Abdullah</p>
+                <p class="lh-sm display-6 fs-4">
+                  CSE,Islamic University of Technology, Gazipur
+                </p>
+                <a href="#" class="btn mb-3 rounded-pill" style="background-color: #065471; color: #fff" role="button">
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row pb-5">
+              <div class="col-12 text-center">
+                <img class="rounded-circle p-3" src="img/amina.jpg" alt="team member"
+                  style="width: 10rem; height: 10rem" />
+                <p class="fs-3 display-5 mb-0 fw-normal">Amina</p>
+                <p class="lh-sm display-6 fs-4">
+                  CSE,Islamic University of Technology, Gazipur
+                </p>
+                <a href="#" class="btn mb-3 rounded-pill" style="background-color: #065471; color: #fff" role="button">
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row pb-5">
+              <div class="col-12 text-center">
+                <img class="rounded-circle p-3" src="img/namirah.jpg" alt="team member"
+                  style="width: 10rem; height: 10rem" />
+                <p class="fs-3 display-5 mb-0 fw-normal">Namirah Rasul</p>
+                <p class="lh-sm display-6 fs-4">
+                  CSE,Islamic University of Technology, Gazipur
+                </p>
+                <a href="#" class="btn mb-3 rounded-pill" style="background-color: #065471; color: #fff" role="button">
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left and right controls/icons -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+
+  <!--- Footer -->
+  <footer>
+    <div class="container-fluid" style="color: #fff; background-color: #0c2233">
+      <div class="row text-center text-white p-3">
+        <div class="col-md-3">
+          <div class="row border-top border-bottom py-3 justify-content-center">
+            <div class="pe-4">
+              <img src="img/logo.svg" alt="logo" style="height: 6rem" />
+            </div>
+            <div class="fs-4 fw-bold text-center">webdiv</div>
+          </div>
+          <div class="lh-sm p-3">
+            <p>555-555-5555</p>
+            <p>webdiv@gmail.com</p>
+            <p>House 22, Block-C, Banani</p>
+            <p>Dhaka 1213</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h4 class="py-3 mb-3 border-top border-bottom">SiteMap</h4>
+          <h5>Home</h5>
+          <p class="text-white-50">Introduction</p>
+          <p class="text-white-50">Features</p>
+          <p class="text-white-50">Meet the team</p>
+          <h5>Trending</h5>
+        </div>
+        <div class="col-md-6">
+          <h4 class="py-3 mb-3 border-top border-bottom">
+            Join our mailing list for more updates
+          </h4>
+          <form class="">
+            <div class="row mb-3">
+              <div class="col-md-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+              </div>
+              <div class="col-md-7">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                <div id="emailHelp" class="form-text">
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-warning rounded-pill">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-12">
+          <hr class="light mb-4" />
+          <h5>&copy;webdiv 2023</h5>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+  <!--  for local use  -->
+  <script src="../btsp/jquery-3.2.1.min.js"></script>
+  <script src="../btsp/bootstrap.min.js"></script>
+</body>
+
+</html>

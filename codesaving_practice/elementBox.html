@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://kit.fontawesome.com/6238ddaa77.js" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css">
+
+    <link rel="stylesheet" href="elementBox.css">
+    <script src="elementBox.js" defer></script>
+</head>
+
+<body>
+    <div class="property-pane">
+        <div class="textBox" id="textBox">
+            <form action="#" method="post">
+                <h2>Text Design</h2>
+                <p>
+                    <label for="txt-color" class="floatLabel">Color</label><br>
+                    <input type="color" name="color" id="color-Picker-txt" value="#333333">
+                    <label id="result-txt">#333333</label>
+                </p>
+                <p>
+                    <label class="floatLabel">Letter spacing</label>
+                <div style="display: flex;">
+                    <input id="letter-space" type="number" value="0">
+                    <select id="letter-space-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Word spacing</label>
+                <div style="display: flex;">
+                    <input id="word-space" type="number" value="0">
+                    <select id="word-space-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+    
+                </p>
+                <p>
+                    <label class="floatLabel">Line height</label>
+                <div style="display: flex;">
+                    <input id="line-height" type="number" value="0">
+                    <select id="line-height-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Text transform</label><br>
+                    <select id="text-transform">
+                        <option value="capitalize">Capitalize</option>
+                        <option value="lowercase">Lowercase</option>
+                        <option value="uppercase">Uppercase</option>
+                        <option value="none">None</option>
+                    </select>
+                </p>
+                <p>
+                    <label class="floatLabel">Text alignment</label><br>
+                    <select id="text-alignment">
+                        <option value="left">Left</option>
+                        <option value="right">Right</option>
+                        <option value="center">Center</option>
+                    </select>
+                </p>
+                <button id="save-text-property"> Save </button>
+            </form>
+        </div>
+    
+        <div class="fontBox" id="fontBox">
+            <form action="#" method="post">
+                <h2>Font Design</h2>
+                <p>
+                    <label class="floatLabel">Font family</label><br>
+                    <select id="font-family">
+                        <option value="serif">Serif</option>
+                        <option value="sans serif">Sans serif</option>
+                        <option value="cursive">Cursive</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="monospace">Monospace</option>
+                    </select>
+                </p>
+                <p>
+                    <label class="floatLabel">Font weight</label>
+                <div style="display: flex;">
+                    <input id="font-weight" type="number" value="0">
+                    <select id="font-weight-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Font size</label>
+                <div style="display: flex;">
+                    <input id="font-size" type="number" value="0">
+                    <select id="font-size-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Font style</label>
+                    <select id="font-style">
+                        <option value="bold">Bold</option>
+                        <option value="italic">Italic</option>
+                        <option value="underline">Underlined</option>
+                    </select>
+                </p>
+                <button id="save-font-property"> Save </button>
+            </form>
+        </div>
+    
+        <div class="bgBox" id="bgBox">
+            <form action="#" method="post">
+                <h2>Background Design</h2>
+                <p>
+                    <label for="bg-color" class="floatLabel">Background color</label><br>
+                    <input type="color" name="color" id="color-Picker" value="#333333">
+                    <label id="result">#333333</label>
+                </p>
+                <p>
+                    <label for="bg-position" class="floatLabel">Background position</label>
+                <div style="display: flex;">
+                    <input id="bg-position" type="number" value="0">
+                    <select id="bg-position-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label for="bg-size" class="floatLabel">Background size</label><br>
+                <div style="display: flex;">
+                    <input id="bg-size" type="number" value="0">
+                    <select id="bg-size-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <button id="save-bg-property"> Save </button>
+            </form>
+        </div>
+    
+        <div class="DimensionBox" id="DimensionBox">
+            <form action="#" method="post">
+                <h2>Dimension</h2>
+    
+                <p>
+                    <label class="floatLabel">Width</label>
+                <div style="display: flex;">
+                    <input id="width" type="number" value="0">
+                    <select id="width-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Min Width</label>
+                <div style="display: flex;">
+                    <input id="min-width" type="number" value="0">
+                    <select id="min-width-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Max Width</label>
+                <div style="display: flex;">
+                    <input id="max-width" type="number" value="0">
+                    <select id="max-width-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+    
+                <p>
+                    <label class="floatLabel">Height</label>
+                <div style="display: flex;">
+                    <input id="height" type="number" value="0">
+                    <select id="height-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Min Height</label>
+                <div style="display: flex;">
+                    <input id="min-height" type="number" value="0">
+                    <select id="min-height-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Max Height</label>
+                <div style="display: flex;">
+                    <input id="max-height" type="number" value="0">
+                    <select id="max-height-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <button id="save-dimension-property"> Save </button>
+            </form>
+        </div>
+    
+        <div class="BorderBox" id="BorderBox">
+            <form action="#" method="post">
+                <h2>Border</h2>
+                <p>
+                    <label class="floatLabel">Border color</label><br>
+                    <input type="color" name="color" id="color-Picker-border" value="#000000">
+                    <label id="result-border">#000000</label>
+                </p>
+                <p>
+                    <label class="floatLabel">Border Width</label>
+                <div style="display: flex;">
+                    <input id="border-width" type="number" value="0">
+                    <select id="border-width-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Border Radius</label>
+                <div style="display: flex;">
+                    <input id="border-radius" type="number" value="0">
+                    <select id="border-radius-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Border style</label>
+                    <select id="border-style">
+                        <option value="dotted">Dotted</option>
+                        <option value="ridge">Ridge</option>
+                        <option value="dashed">Dashed</option>
+                        <option value="solid">Solid</option>
+                        <option value="double">Double</option>
+                        <option value="inset">Inset</option>
+                        <option value="outset">Outset</option>
+                        <option value="groove">Groove</option>
+                    </select>
+                </p>
+                <button id="save-border-property"> Save </button>
+            </form>
+        </div>
+    
+    
+        <div class="PaddingMargin" id="PaddingMargin">
+            <form action="#" method="post">
+                <h2>Padding & Margin</h2>
+                <p>
+                    <label class="floatLabel">Padding left</label>
+                <div style="display: flex;">
+                    <input id="padding-left" type="number" value="0">
+                    <select id="padding-left-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Padding right</label>
+                <div style="display: flex;">
+                    <input id="padding-right" type="number" value="0">
+                    <select id="padding-right-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Padding bottom</label>
+                <div style="display: flex;">
+                    <input id="padding-bottom" type="number" value="0">
+                    <select id="padding-bottom-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Padding top</label>
+                <div style="display: flex;">
+                    <input id="padding-top" type="number" value="0">
+                    <select id="padding-top-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+    
+                <p>
+                    <label class="floatLabel">Margin left</label>
+                <div style="display: flex;">
+                    <input id="margin-left" type="number" value="0">
+                    <select id="margin-left-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Margin right</label>
+                <div style="display: flex;">
+                    <input id="margin-right" type="number" value="0">
+                    <select id="margin-right-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Margin bottom</label>
+                <div style="display: flex;">
+                    <input id="margin-bottom" type="number" value="0">
+                    <select id="margin-bottom-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <p>
+                    <label class="floatLabel">Margin top</label>
+                <div style="display: flex;">
+                    <input id="margin-top" type="number" value="0">
+                    <select id="margin-top-unit">
+                        <option value="px">px</option>
+                        <option value="em">em</option>
+                        <option value="rem">rem</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                </p>
+                <button id="save-mp-property"> Save </button>
+            </form>
+        </div>
+    
+        <div class="miscellaneous" id="miscellaneous">
+            <form action="#" method="post">
+                <h2>Miscellaneous</h2>
+                <p>
+                    <label class="floatLabel">Opacity</label>
+                    <input id="opacity" type="text" value="" placeholder="0~1">
+                </p>
+                <p>
+                    <label class="floatLabel">Cursor</label>
+                    <select id="cursor">
+                        <option value="default">Default</option>
+                        <option value="pointer">Pointer</option>
+                        <option value="text">Text</option>
+                        <option value="wait">Wait </option>
+                        <option value="help">Help </option>
+                        <option value="progress">Progress</option>
+                        <option value="crosshair">Crosshair</option>
+                        <option value="move">Move</option>
+                    </select>
+                </p>
+                <p>
+                    <label class="floatLabel">Overflow</label>
+                    <select id="overflow">
+                        <option value="visible">Visible</option>
+                        <option value="hidden">Hidden</option>
+                        <option value="scroll">Scroll</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </p>
+                <p>
+                    <label class="floatLabel">Visibility</label>
+                    <select id="visibility">
+                        <option value="visible">Visible</option>
+                        <option value="hidden">Hidden</option>
+                        <option value="collapse">Collapse</option>
+                    </select>
+                </p>
+                <p>
+                    <label class="floatLabel">Display</label>
+                    <select id="display">
+                        <option value="flex">Flex</option>
+                        <option value="grid">Grid</option>
+                        <option value="inline">Inline</option>
+                        <option value="inline-box">Inline box</option>
+                        <option value="list-item">List item</option>
+                        <option value="none">None</option>
+                    </select>
+                </p>
+    
+                <p>
+                    <label class="floatLabel">Position</label>
+                    <select id="position">
+                        <option value="top">Top</option>
+                        <option value="bottom">Bottom</option>
+                        <option value="left">Left</option>
+                        <option value="right">Right</option>
+                    </select>
+                </p>
+                <button id="save-mis-property"> Save </button>
+            </form>
+        </div>
+        <div class="uploadImageBox" id="uploadImageBox">
+            <form action="#" method="post">
+                <h2>Upload Image</h2>
+                <p>
+                    <label for="imgsrc" class="floatLabel">Image source:</label><br>
+                    <input type="text" name="imgsrc" id="imgsrc">
+                </p>
+                <p>
+                    <label for="imgalt" class="floatLabel">Alternate text:</label><br>
+                    <input type="text" name="imgalt" id="imgalt">
+                </p>
+                <button id="save-img-property"> Save </button>
+            </form>
+        </div>
+     
+    </div>
+
+</body>
+
+</html>

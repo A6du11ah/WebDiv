@@ -1,0 +1,52 @@
+#property-pane{
+  margin-top: 0;
+  padding-top: 0;
+  height: 100%;
+  width: 0rem;
+  overflow: scroll;
+}
+
+
+.textBox #color-Picker-txt , .bgBox #color-Picker , .BorderBox #color-Picker-border {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+}
+
+.textBox #result-txt , .bgBox #result , .BorderBox #result-border {
+  font-size: 1rem;
+  border: 0.1rem solid black;
+  padding: 0.1rem;
+}
+
+
+
+.propertyBox {
+  background: #fff;
+  width: 16rem;
+  margin: 0.6rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  box-shadow: 0 0 1em #222;
+  border-radius: 0.1rem;
+}
+
+
+input,
+select,
+label,
+button {
+  margin: 0.1rem;
+  padding: 0.1rem;
+}
+
+button {
+  background: violet;
+  padding: 0.5rem;
+}
+
+button:hover {
+  background: rgb(226, 183, 226);
+  cursor: pointer;
+}

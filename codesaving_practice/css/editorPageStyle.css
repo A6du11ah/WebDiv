@@ -1,0 +1,588 @@
+/*.................................................................................................*/
+/*///[ Editor Document ]///////////////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+*{
+    margin: 0rem;
+    /* background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important; */
+}
+
+html{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+/*.................................................................................................*/
+/*///[ Editor Control Area ]///////////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+#control-area {
+    height: 100%;
+
+    display: flex;
+}
+
+#control-pane {
+    height: 100%;
+    width: 5.125rem;
+
+    display: flex;
+
+    transition: width 0.4s;
+}
+
+#control-pane-button {
+    height: 100%;
+    width: 0.75rem;
+    border-radius: 0rem 1rem 1rem 0rem;
+
+    background: rgba(157, 178, 191, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease-in-out;
+}
+
+#control-pane-button i {
+    font-size: 1.25rem;
+    color: rgba(12, 34, 51, 0.25);
+
+    transition: inherit;
+}
+
+#control-pane-button i:nth-of-type(1) {
+    display: none;
+}
+
+#control-pane-button:hover {
+    background: rgba(157, 178, 191, 0.5);
+}
+
+#control-pane-button:hover i {
+    color: rgba(12, 34, 51, 0.75);
+}
+/*.................................................................................................*/
+/*///[ Editor Interaction Pane ]///////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+#interactiona-pane {
+    height: 100%;
+    width: 0%;
+}
+/*.................................................................................................*/
+/*///[ Editor Property Pane ]//////////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+#property-pane {
+    height: 100%;
+    width: 0%;
+}
+/*.................................................................................................*/
+/*///[ Editor Component Pane ]/////////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+#component-pane {
+    width: 0rem;
+    height: 100%;
+
+    border-left: 0.1rem solid #3282B8;
+    border-right: 0.1rem solid #3282B8;
+
+    background: rgba(157, 178, 191, 0.375);
+
+    position: relative;
+    overflow: hidden;
+
+    transition: width 0.4s;
+}
+
+/* #component-pane-label {
+    height: 2.5rem;
+    width: 100%;
+
+    font-size: 1.175rem;
+    color: #ffc045;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1B262C;
+
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    transform-origin: 0% 100%;
+    transform: rotate(-90deg);
+} */
+
+.component-itemlist {
+    height: auto;
+    width: 100%;
+}
+
+.component-itemlist p {
+    height: 2.5rem;
+    width: 100%;
+    border-top: 0.1125rem solid #3282b8;
+    border-bottom: 0.1125rem solid #3282b8;
+
+    font-size: 1.175rem;
+    color: #BBE1FA;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #0C2233;
+}
+
+.component-itemlist p:hover {
+    background: #133753;
+}
+
+.component-itemlist ul {
+    padding: 0rem;
+
+    list-style: none;
+    overflow: hidden;
+}
+
+.component-itemlist-collapse {
+    max-height: 0rem;
+    transition: max-height 0.25s ease-out;
+}
+
+.component-itemlist-expand {
+    max-height: 50rem;
+    transition: max-height 0.25s ease-in;
+}
+
+.component-item {
+    height: 2.125rem;
+    width: 100%;
+    border-bottom: 0.1rem outset #3282B8;
+
+    font-size: 1.0625rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    background: #2b3e50;
+}
+
+.component-item:hover {
+    color: #ffc045;
+    background: #202e3b;
+}
+/*.................................................................................................*/
+/*///[ Editor Action Pane ]////////////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+#action-pane {
+    width: 5.125rem;
+    height: 100%;
+
+    background: rgba(157, 178, 191, 0.375);
+}
+
+#action-toolbar {
+    height: calc(100% - 5.125rem);
+    width: 5.125rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#action-toolbar ul {
+    padding: 0rem;
+    margin-bottom: 2rem;
+    list-style: none;
+}
+
+.action-tool-option {
+    height:2.5rem;
+    width: 2.5rem;
+    border: 0.1rem solid #3282B8;
+    border-radius: 0.625rem;
+    margin-bottom: 0.25rem;
+
+    background-color: #0C2233;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.action-tool-option:hover {
+    background-color: #ffc045;
+}
+
+.action-tool-option:hover i {
+    color: rgb(12, 34, 51);
+}
+
+.action-tool-option i {
+    font-size: 1.25rem;
+    color: white;
+
+    transition: inherit;
+}
+
+.action-tool-option-pressed {
+    background-color: #ffc045;
+}
+
+.action-tool-option-pressed i {
+    color: rgb(12, 34, 51);
+}
+
+.action-tool-option-active {
+    pointer-events: auto;
+}
+
+.action-tool-option-active i {
+    color: white;
+}
+
+.action-tool-option-inactive {
+    pointer-events: none;
+}
+
+.action-tool-option-inactive i {
+    color: #385066;
+}
+
+#action-menu {
+    height: 5.125rem;
+    width: 5.125rem;
+
+    align-self: flex-end;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+#action-menu-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 0.25rem outset #9DB2BF;
+    border-radius: 50%;
+
+    background: #0C2233;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+
+    transition: all 0.4s ease;
+}
+
+#action-menu-logo:hover {
+    transform: scale(1.125);
+    border-color: #ffc045;
+    cursor: pointer;
+}
+
+#action-menu-logo img {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    transition: inherit;
+}
+
+.action-menu-option {
+    width: 3.375rem;
+    height: 3.375rem;
+    border: 0.25rem outset #9DB2BF;
+    border-radius: 50%;
+
+    background: #0C2233;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    left: 0.6125rem;
+    z-index: 1;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.action-menu-option:hover {
+    background: #ffc045;
+    cursor: pointer;
+}
+
+.action-menu-option:hover i {
+    color: #0C2233;
+}
+
+.action-menu-option i {
+    font-size: 1.25rem;
+    color: white;
+
+    transition: inherit;
+}
+
+.menu-active {
+    transform: scale(1.125);
+}
+
+.menu-option-inactive {
+    pointer-events: none;
+}
+/*.................................................................................................*/
+/*///[ Editor Output Area ]////////////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+#output-area{
+    height: 100%;
+    width: calc(75% - 6.775rem);
+    display: block;
+    overflow: hidden;
+}
+
+#output-display{
+    height: 100%;
+    width: 100%;
+}
+
+#display-frame{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+}
+/*.................................................................................................*/
+/*///[ Editor Resize Bar ]/////////////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+#resize-bar{
+    width: 0.75rem;
+    height: 100%;
+    background: #1B262C;
+    border-right: 0.1rem solid #3282B8;
+    border-left: 0.1rem solid #3282B8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: col-resize;
+}
+
+#resize-button{
+    height: 3rem;
+    width: 2.5rem;
+    font-size: 1.25rem;
+    background: #0C2233;
+    border: 0.1rem solid #3282B8;
+    border-radius: 0.75rem;
+    color: #BBE1FA;
+    z-index: 2;
+}
+
+#resize-button:hover{
+    background: #133753;
+}
+
+#resize-button i:nth-child(2){
+    display: none;
+}
+/*.................................................................................................*/
+/*///[ Editor Code Area ]//////////////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+#code-area{
+    width: 25%;
+    overflow: hidden;
+    display: block;
+    height: 100%;
+    margin: 0;
+}
+
+.code-container{
+    width: 100%;
+    height: calc(100% / 3);
+}
+
+.code-title-bar{
+    width: 100%;
+    height: 2.5rem;
+    background: #3282B8;
+    position: relative;
+    box-shadow: 0 0.75rem 1.5rem #1B262C;
+    z-index: 1;
+}
+
+.code-title-bar-layer{
+    height: 70%;
+    width: 100%;
+    background: #0C2233;
+    position: absolute;
+}
+
+.code-container:nth-of-type(2) .code-title-bar-layer,
+.code-container:nth-of-type(3) .code-title-bar-layer{
+    cursor: row-resize;
+}
+
+.code-container:nth-of-type(2) .code-title-bar-layer:hover,
+.code-container:nth-of-type(3) .code-title-bar-layer:hover{
+    background: #133753;
+}
+
+.code-title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    position: absolute;
+    top: 55%;
+    bottom: 45%;
+    left: 15%;
+    z-index: 1;
+}
+
+.code-title-icon{
+    height: 3.25rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 0.15rem solid #3282B8;
+    background: #0C2233;
+    color: #ffffff;
+    margin-top: 35%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.code-title-icon i{
+    font-size: 2.25rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.code-container:nth-of-type(1):focus-within .code-title-icon i{
+    color: #ee9a76;
+}
+
+.code-container:nth-of-type(2):focus-within .code-title-icon i{
+    color: #789df1;
+}
+
+.code-container:nth-of-type(3):focus-within .code-title-icon i{
+    color: #edde7b;
+}
+
+.code-title-icon p{
+    display: none;
+    margin-left: 0.375rem;
+    font-family: Belanosima;
+    letter-spacing: 0.25rem;
+}
+
+.code-container:focus-within .code-title-icon p,
+.code-container:hover .code-title-icon p{
+    display: block;
+    animation: code-title-name-appear-on-hover 0.75s;
+}
+
+@keyframes code-title-name-appear-on-hover {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.code-text{
+    width: 100%;
+    height: calc(100% - 3.3rem);
+    padding-top: 0.8rem;
+    background: #2b3e50;
+}
+/*.................................................................................................*/
+/*///[ Editor CodeMirror Setup ]///////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+.cm-s-lucario .CodeMirror-cursor {
+    border-left: solid 0.5rem #FFC045;
+}
+
+.cm-s-lucario .CodeMirror-linenumber {
+    color: #BBE1FA;
+}
+
+.cm-s-lucario .CodeMirror-selected {
+    background: #657B8F;
+}
+
+.cm-s-lucario .CodeMirror-line::selection,
+.cm-s-lucario .CodeMirror-line>span::selection,
+.cm-s-lucario .CodeMirror-line>span>span::selection {
+    background: #657B8F;
+}
+
+.cm-s-lucario .CodeMirror-line::-moz-selection,
+.cm-s-lucario .CodeMirror-line>span::-moz-selection,
+.cm-s-lucario .CodeMirror-line>span>span::-moz-selection {
+    background: #657B8F;
+}
+
+.cm-s-lucario span.cm-comment {
+    color: #0A91AB;
+}
+
+.cm-matchhighlight {
+    background-color: #657B8F;
+}
+/*.................................................................................................*/
+/*///[ Editor User Support ]///////////////////////////////////////////////////////////////////////*/
+/*.................................................................................................*/
+#wd-support-selectable {
+    background:rgba(0, 85, 255, 0.5);
+    outline: 0.125rem dashed black;
+
+    display: none;
+
+    position: absolute;
+    translate: none;
+    z-index: 1000;
+
+    pointer-events: none;
+}
+
+#wd-support-selected {
+    background:rgba(255, 85, 0, 0.5);
+    outline: 0.125rem dashed black;
+
+    display: none;
+
+    position: absolute;
+    translate: none;
+    z-index: 1000;
+
+    pointer-events: none;
+}
+
+#wd-support-resizer {
+    height: 0.875rem;
+    width: 0.875rem;
+
+    background: slategrey;
+    outline: 0.125rem outset black;
+
+    position: relative;
+    top: calc(100% - 0.875rem);
+    left: calc(100% - 0.875rem);
+}

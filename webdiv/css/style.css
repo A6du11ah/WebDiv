@@ -1,0 +1,138 @@
+html,
+body {
+  color: #222;
+}
+
+.nav-link {
+  font-size: 1.1rem !important;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: calc(100vh - 75px);
+  object-fit: cover;
+}
+
+.carousel-caption {
+  transform: translateY(-60%);
+}
+
+.welcome {
+  width: 75%;
+}
+.welcome hr {
+  width: 90%;
+}
+
+hr.light {
+  background: #777;
+  width: 80%;
+}
+
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  background: url("../img/mac.png");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+  padding: 1rem;
+}
+
+/*---Media Queries --*/
+
+@media (max-width: 768px) {
+  .carousel-caption {
+    transform: translateY(-80%);
+  }
+  .carousel-caption h1 {
+    font-size: 4rem;
+  }
+
+  .welcome .display-4 {
+    font-size: 3rem;
+  }
+
+  .social a i {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .social a i {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-caption {
+    left: 5%;
+    right: 5%;
+  }
+  .carousel-caption h1 {
+    font-size: 3rem;
+  }
+
+  .welcome {
+    width: 100%;
+  }
+
+  footer h4 {
+    display: inline-block;
+    width: 60%;
+  }
+  footer h4.border-top {
+    border-top: 0 !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .carousel-caption {
+    transform: translateY(-20%);
+    left: 1%;
+    right: 1%;
+  }
+
+  .welcome .display-4 {
+    font-size: 2.5rem;
+  }
+}
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+.card-block {
+  min-width: 18rem;
+  min-height: 22rem;
+  background-color: #ffffff5b;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.fa-heart {
+  color: #0c2233;
+}
+
+.footer {
+  color: #fff;
+  background-color: #0c2233;
+}

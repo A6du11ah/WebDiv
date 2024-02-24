@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editor Page</title>
+
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Belanosima">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"
+        integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/lucario.min.css"
+        integrity="sha512-8CW1guslz3VSq681ZW1+pB3YXhfq5tGNqMsINg+1MyluwAu24D0LKlKVih8g/i1nYQOfhkenzNC0TZX9ZT5Nzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/scroll/simplescrollbars.min.css"
+        integrity="sha512-2y3NTsei81d5emn5nwrdflyI5EGULwKXRZ0BCbO55cjgQ8x62X4ydH/jbnzrKnxArstf79F9n6z1j2MtVmJ8YA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.min.css"
+        integrity="sha512-OmcLQEy8iGiD7PSm85s06dnR7G7C9C0VqahIPAj/KHk5RpOCmnC6R2ob1oK4/uwYhWa9BF1GC6tzxsC8TIx7Jg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldgutter.min.css"
+        integrity="sha512-YwkMTlTHn8dBnwa47IF+cKsS00HPiiVhQ4DpwT1KF2gUftfFR7aefepabSPLAs6zrMyD89M3w0Ow6mQ5XJEUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/editorPageStyle.css">
+    <link rel="stylesheet" href="elementBox.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"
+        integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js"
+        integrity="sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/htmlembedded/htmlembedded.min.js"
+        integrity="sha512-nZlYJlXg6ZqhEdMELUCY9QpeUZHLZh9JUUe2wnHmEvFSWer2gxmDO4xeQ4QlRM1zMzeZsTdm5oFw2IGhsmmLlA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/htmlmixed/htmlmixed.min.js"
+        integrity="sha512-HN6cn6mIWeFJFwRN9yetDAMSh+AK9myHF1X9GlSlKmThaat65342Yw8wL7ITuaJnPioG0SYG09gy0qd5+s777w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/css/css.min.js"
+        integrity="sha512-rQImvJlBa8MV1Tl1SXR5zD2bWfmgCEIzTieFegGg89AAt7j/NBEe50M5CqYQJnRwtkjKMmuYgHBqtD1Ubbk5ww=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js"
+        integrity="sha512-I6CdJdruzGtvDyvdO4YsiAq+pkWf2efgd1ZUSK2FnM/u2VuRASPC7GowWQrWyjxCZn6CT89s3ddGI+be0Ak9Fg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/keymap/sublime.min.js"
+        integrity="sha512-SV3qeFFtzcmGtUQPLM7HLy/7GKJ/x3c2PdiF5GZQnbHzIlI2q7r77y0IgLLbBDeHiNfCSBYDQt898Xp0tcZOeA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/comment/comment.min.js"
+        integrity="sha512-UaJ8Lcadz5cc5mkWmdU8cJr0wMn7d8AZX5A24IqVGUd1MZzPJTq9dLLW6I102iljTcdB39YvVcCgBhM0raGAZQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/scroll/simplescrollbars.min.js"
+        integrity="sha512-1Vc3i/yplqkVbJBGgEpx9odVj3SLHMx2EOsQOMJsHbM5LRPL2iaPH2sEE+8sZOCqvuXGignKEwmTqO6/b11RqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js"
+        integrity="sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closebrackets.min.js"
+        integrity="sha512-tsjcYO5hFvViRssxiM7Jhd8601epWOx1He3Hl4yuI5dKKPxr43KxkOhc9GZeeqzlYJm9ABb7UPA9697NiqZZ7Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchtags.min.js"
+        integrity="sha512-wZDyiYRCXczD+UFYLUfsEag3MxJW/ev0CZ0rCTPt3Qcwr4J7LZHJM3XWa2VSEI0s3nGUjPmJRFhrPhgr/Z3Auw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closetag.min.js"
+        integrity="sha512-XYx5xhl4B5vKNlaRBWh/nlti0+IPM6eT+dSFc3/oc4rERn2DpwbS3q4OblprqqBLXyRSVePKmf+8mHkDLtGZpg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/xml-fold.min.js"
+        integrity="sha512-3/N6i9E1fOr1I/8Yt3KL9uFeoEcjh3ceFXf83X6vIlElMZEq0LKF1JDYsIJYaZIJeG2YD9TnGCA4KAR2bEbz/w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/markdown-fold.min.js"
+        integrity="sha512-wt5QmuOCP04rfwZuOYrr1/JH1hEzpshezbxP7sDYaiU74vQoK49s6KAIEEPl8DD3rsXtMeVg6WsDrb53q705Lw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/indent-fold.min.js"
+        integrity="sha512-Q6g5qQfa6ko+Y+0BwAciUAq01qxgfScTPFP2Fsrr+zIrTe5Yq3tN5xaA919MmBs/1RMz/jyctknYavjc3k+/xg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/brace-fold.min.js"
+        integrity="sha512-5MuaB1PVXvhsYVG0Ozb0bwauN7/D1VU4P8dwo5E/xiB9SXY+VSEhIyxt1ggYk2xaB/RKqKL7rPXpm1o1IlTQDA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/comment-fold.min.js"
+        integrity="sha512-POq5oizlc/SrDJVaPG9eRo020t5igLlyXnOEPl854IgtRDnRCi9D3RAdOS1dhZ3Y0SmcyDVwyt2z2uFj3WYcbg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldcode.min.js"
+        integrity="sha512-Q2qfEJEU257Qlqc4/5g6iKuJNnn5L0xu2D48p8WHe9YC/kLj2UfkdGD01qfxWk+XIcHsZngcA8WuKcizF8MAHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldgutter.min.js"
+        integrity="sha512-kEVEkqJPlijyiRihpbPuhIW6wkb5wcEaVsfYm/utqn8ToMspk7E2fK5UyZ2HdnJnA4/0HyQwqeKzHNuPm+zyCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.min.js"
+        integrity="sha512-yhmeAerubMLaGAsyS7sE8Oqub6GeTkBDQpkXo2JKHgg7JOCudQvcbDQc5rPxdl7MqcDusTJzSy+ODlyzAwETfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/xml-hint.min.js"
+        integrity="sha512-+ysdToUF7KWua+mgbRPZ5hw0goAzopoVILQ4tejOckvVZV7/7a+Coqo2cTAXAaqkOemp+gz3P6hIzO5Jtys/Jg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/html-hint.min.js"
+        integrity="sha512-oxBKDzXElkyh3mQC/bKA/se1Stg1Q6fm7jz7PPY2kL01jRHQ64IwjpZVsuZojcaj5g8eKSMY9UJamtB1QR7Dmw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/css-hint.min.js"
+        integrity="sha512-1BD3lo262s+DtDFoeD8+ssEL1zVJU8SHWWMtUyxfLqMV/jQDEnyQlS/CL3mD1kkLSv2hhYq1sdcA/zAPDz4JVA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/javascript-hint.min.js"
+        integrity="sha512-omIxBxPdObb7b3giwJtPBiB86Mey/ds7qyKFcRiaLQgDxoSR+UgCYEFO7jRZzPOCZAICabGCraEhOSa71U1zFA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/anyword-hint.min.js"
+        integrity="sha512-wdYOcbX/zcS4tP3HEDTkdOI5UybyuRxJMQzDQIRcafRLY/oTDWyXO+P8SzuajQipcJXkb2vHcd1QetccSFAaVw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/display/placeholder.min.js"
+        integrity="sha512-acBo6sW2h2GZQ9BqU9v5RyYGPUEr1a9jrukJg825Y0ahxAg/7aqTNPtcalloqnf4DfsRVdcdNmcBNWPD8b8W8Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/selection/active-line.min.js"
+        integrity="sha512-0sDhEPgX5DsfNcL5ty4kP6tR8H2vPkn40GwA0RYTshkbksURAlsRVnG4ECPPBQh7ZYU6S3rGvp5uhlGQUNrcmA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/selection/mark-selection.min.js"
+        integrity="sha512-XaS0JPIY5yDTDaYIMjkoXz+LF/DEVhRn1eq9QOhJPhMuJGGPOKZTulF+LY8/uwd18k00CIaSe4f8fCyp/5U7IQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/search/searchcursor.min.js"
+        integrity="sha512-+ZfZDC9gi1y9Xoxi9UUsSp+5k+AcFE0TRNjI0pfaAHQ7VZTaaoEpBZp9q9OvHdSomOze/7s5w27rcsYpT6xU6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/search/match-highlighter.min.js"
+        integrity="sha512-94h/nzerPpLt9vsOyZmNNemwyUESYD/Tnuem6b67+RQMETNFhH8pTCHLDZkGNhzEbmKO0AidJgS0aYH1mH9YfA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="js/wdComponentCode.js" defer></script>
+
+    <script type="module" src="js/outputScript.js" defer></script>
+    <script src="elementBox.js" defer></script>
+
+    <script src="js/codeScript.js" defer></script>
+    <script src="js/controlActionScript.js" defer></script>
+    <script src="js/controlComponentScript.js" defer></script>
+
+    <script src="test.js" defer></script>
+</head>
+
+<body>
+    <div id="control-area">
+        <div id="control-pane">
+            <div id="interactiona-pane"></div>
+            <div id="property-pane">
+                <div class="textBox" id="textBox">
+                    <div class="propertyBox">
+                        <h2>Text Design</h2>
+                        <p>
+                            <label for="txt-color" class="floatLabel">Color</label><br>
+                            <input type="color" name="color" id="color-Picker-txt" value="#333333">
+                            <label id="result-txt">#333333</label>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Letter spacing</label>
+                        <div style="display: flex;">
+                            <input id="letter-space" type="number" value="0">
+                            <select id="letter-space-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Word spacing</label>
+                        <div style="display: flex;">
+                            <input id="word-space" type="number" value="0">
+                            <select id="word-space-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+            
+                        </p>
+                        <p>
+                            <label class="floatLabel">Line height</label>
+                        <div style="display: flex;">
+                            <input id="line-height" type="number" value="0">
+                            <select id="line-height-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Text transform</label><br>
+                            <select id="text-transform">
+                                <option value="capitalize">Capitalize</option>
+                                <option value="lowercase">Lowercase</option>
+                                <option value="uppercase">Uppercase</option>
+                                <option value="none">None</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Text alignment</label><br>
+                            <select id="text-alignment">
+                                <option value="left">Left</option>
+                                <option value="right">Right</option>
+                                <option value="center">Center</option>
+                            </select>
+                        </p>
+                        <button id="save-text-property"> Save </button>
+                    </div>
+                </div>
+            
+                <div class="fontBox" id="fontBox">
+                    <div class="propertyBox">
+                        <h2>Font Design</h2>
+                        <p>
+                            <label class="floatLabel">Font family</label><br>
+                            <select id="font-family">
+                                <option value="serif">Serif</option>
+                                <option value="sans serif">Sans serif</option>
+                                <option value="cursive">Cursive</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="monospace">Monospace</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Font weight</label>
+                        <div style="display: flex;">
+                            <input id="font-weight" type="number" value="0">
+                            <select id="font-weight-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Font size</label>
+                        <div style="display: flex;">
+                            <input id="font-size" type="number" value="0">
+                            <select id="font-size-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Font style</label>
+                            <select id="font-style">
+                                <option value="bold">Bold</option>
+                                <option value="italic">Italic</option>
+                                <option value="underline">Underlined</option>
+                            </select>
+                        </p>
+                        <button id="save-font-property"> Save </button>
+                    </div>
+                </div>
+            
+                <div class="bgBox" id="bgBox">
+                    <div class="propertyBox">
+                        <h2>Background Design</h2>
+                        <p>
+                            <label for="bg-color" class="floatLabel">Background color</label><br>
+                            <input type="color" name="color" id="color-Picker" value="#333333">
+                            <label id="result">#333333</label>
+                        </p>
+                        <p>
+                            <label for="bg-position" class="floatLabel">Background position</label>
+                        <div style="display: flex;">
+                            <input id="bg-position" type="number" value="0">
+                            <select id="bg-position-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label for="bg-size" class="floatLabel">Background size</label><br>
+                        <div style="display: flex;">
+                            <input id="bg-size" type="number" value="0">
+                            <select id="bg-size-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <button id="save-bg-property"> Save </button>
+                    </div>
+                </div>
+            
+                <div class="DimensionBox" id="DimensionBox">
+                    <div class="propertyBox">
+                        <h2>Dimension</h2>
+            
+                        <p>
+                            <label class="floatLabel">Width</label>
+                        <div style="display: flex;">
+                            <input id="width" type="number" value="0">
+                            <select id="width-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Min Width</label>
+                        <div style="display: flex;">
+                            <input id="min-width" type="number" value="0">
+                            <select id="min-width-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Max Width</label>
+                        <div style="display: flex;">
+                            <input id="max-width" type="number" value="0">
+                            <select id="max-width-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+            
+                        <p>
+                            <label class="floatLabel">Height</label>
+                        <div style="display: flex;">
+                            <input id="height" type="number" value="0">
+                            <select id="height-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Min Height</label>
+                        <div style="display: flex;">
+                            <input id="min-height" type="number" value="0">
+                            <select id="min-height-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Max Height</label>
+                        <div style="display: flex;">
+                            <input id="max-height" type="number" value="0">
+                            <select id="max-height-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <button id="save-dimension-property"> Save </button>
+                    </div>
+                </div>
+            
+                <div class="BorderBox" id="BorderBox">
+                    <div class="propertyBox">
+                        <h2>Border</h2>
+                        <p>
+                            <label class="floatLabel">Border color</label><br>
+                            <input type="color" name="color" id="color-Picker-border" value="#000000">
+                            <label id="result-border">#000000</label>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Border Width</label>
+                        <div style="display: flex;">
+                            <input id="border-width" type="number" value="0">
+                            <select id="border-width-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Border Radius</label>
+                        <div style="display: flex;">
+                            <input id="border-radius" type="number" value="0">
+                            <select id="border-radius-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Border style</label>
+                            <select id="border-style">
+                                <option value="dotted">Dotted</option>
+                                <option value="ridge">Ridge</option>
+                                <option value="dashed">Dashed</option>
+                                <option value="solid">Solid</option>
+                                <option value="double">Double</option>
+                                <option value="inset">Inset</option>
+                                <option value="outset">Outset</option>
+                                <option value="groove">Groove</option>
+                            </select>
+                        </p>
+                        <button id="save-border-property"> Save </button>
+                    </div>
+                </div>
+            
+            
+                <div class="PaddingMargin" id="PaddingMargin">
+                    <div class="propertyBox">
+                        <h2>Padding & Margin</h2>
+                        <p>
+                            <label class="floatLabel">Padding left</label>
+                        <div style="display: flex;">
+                            <input id="padding-left" type="number" value="0">
+                            <select id="padding-left-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Padding right</label>
+                        <div style="display: flex;">
+                            <input id="padding-right" type="number" value="0">
+                            <select id="padding-right-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Padding bottom</label>
+                        <div style="display: flex;">
+                            <input id="padding-bottom" type="number" value="0">
+                            <select id="padding-bottom-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Padding top</label>
+                        <div style="display: flex;">
+                            <input id="padding-top" type="number" value="0">
+                            <select id="padding-top-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+            
+                        <p>
+                            <label class="floatLabel">Margin left</label>
+                        <div style="display: flex;">
+                            <input id="margin-left" type="number" value="0">
+                            <select id="margin-left-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Margin right</label>
+                        <div style="display: flex;">
+                            <input id="margin-right" type="number" value="0">
+                            <select id="margin-right-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Margin bottom</label>
+                        <div style="display: flex;">
+                            <input id="margin-bottom" type="number" value="0">
+                            <select id="margin-bottom-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Margin top</label>
+                        <div style="display: flex;">
+                            <input id="margin-top" type="number" value="0">
+                            <select id="margin-top-unit">
+                                <option value="px">px</option>
+                                <option value="em">em</option>
+                                <option value="rem">rem</option>
+                                <option value="%">%</option>
+                            </select>
+                        </div>
+                        </p>
+                        <button id="save-mp-property"> Save </button>
+                    </div>
+                </div>
+            
+                <div class="miscellaneous" id="miscellaneous">
+                    <div class="propertyBox">
+                        <h2>Miscellaneous</h2>
+                        <p>
+                            <label class="floatLabel">Opacity</label>
+                            <input id="opacity" type="text" value="" placeholder="0~1">
+                        </p>
+                        <p>
+                            <label class="floatLabel">Cursor</label>
+                            <select id="cursor">
+                                <option value="default">Default</option>
+                                <option value="pointer">Pointer</option>
+                                <option value="text">Text</option>
+                                <option value="wait">Wait </option>
+                                <option value="help">Help </option>
+                                <option value="progress">Progress</option>
+                                <option value="crosshair">Crosshair</option>
+                                <option value="move">Move</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Overflow</label>
+                            <select id="overflow">
+                                <option value="visible">Visible</option>
+                                <option value="hidden">Hidden</option>
+                                <option value="scroll">Scroll</option>
+                                <option value="auto">Auto</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Visibility</label>
+                            <select id="visibility">
+                                <option value="visible">Visible</option>
+                                <option value="hidden">Hidden</option>
+                                <option value="collapse">Collapse</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label class="floatLabel">Display</label>
+                            <select id="display">
+                                <option value="flex">Flex</option>
+                                <option value="grid">Grid</option>
+                                <option value="inline">Inline</option>
+                                <option value="inline-box">Inline box</option>
+                                <option value="list-item">List item</option>
+                                <option value="none">None</option>
+                            </select>
+                        </p>
+            
+                        <p>
+                            <label class="floatLabel">Position</label>
+                            <select id="position">
+                                <option value="top">Top</option>
+                                <option value="bottom">Bottom</option>
+                                <option value="left">Left</option>
+                                <option value="right">Right</option>
+                            </select>
+                        </p>
+                        <button id="save-mis-property"> Save </button>
+                    </div>
+                </div>
+                <div class="uploadImageBox" id="uploadImageBox">
+                    <div class="propertyBox">
+                        <h2>Upload Image</h2>
+                        <p>
+                            <label for="imgsrc" class="floatLabel">Image source:</label><br>
+                            <input type="text" name="imgsrc" id="imgsrc">
+                        </p>
+                        <p>
+                            <label for="imgalt" class="floatLabel">Alternate text:</label><br>
+                            <input type="text" name="imgalt" id="imgalt">
+                        </p>
+                        <button id="save-img-property"> Save </button>
+                    </div>
+                </div>
+             
+            </div>
+            <div id="component-pane">
+                <div class="component-itemlist">
+                    <p>Container</p>
+                    <ul class="component-itemlist-collapse">
+                        <li class="component-item">&lt; header &gt;</li>
+                        <li class="component-item">&lt; footer &gt;</li>
+                        <li class="component-item">&lt; navigation &gt;</li>
+                        <li class="component-item">&lt; article &gt;</li>
+                        <li class="component-item">&lt; section &gt;</li>
+                        <li class="component-item">&lt; aside &gt;</li>
+                        <li class="component-item">&lt; division &gt;</li>
+                        <li class="component-item">&lt; form &gt;</li>
+                    </ul>
+                </div>
+                <div class="component-itemlist">
+                    <p>Text</p>
+                    <ul class="component-itemlist-collapse">
+                        <li class="component-item">&lt; header-1 &gt;</li>
+                        <li class="component-item">&lt; header-2 &gt;</li>
+                        <li class="component-item">&lt; header-3 &gt;</li>
+                        <li class="component-item">&lt; header-4 &gt;</li>
+                        <li class="component-item">&lt; header-5 &gt;</li>
+                        <li class="component-item">&lt; header-6 &gt;</li>
+                        <li class="component-item">&lt; paragraph &gt;</li>
+                        <li class="component-item">&lt; hyperlink &gt;</li>
+                        <li class="component-item">&lt; label &gt;</li>
+                    </ul>
+                </div>
+                <div class="component-itemlist">
+                    <p>Graphics</p>
+                    <ul class="component-itemlist-collapse">
+                        <li class="component-item">&lt; icon &gt;</li>
+                        <li class="component-item">&lt; image &gt;</li>
+                        <!-- <li class="component-item">&lt; video &gt;</li>
+                        <li class="component-item">&lt; audio &gt;</li> -->
+                    </ul>
+                </div>
+                <div class="component-itemlist">
+                    <p>List</p>
+                    <ul class="component-itemlist-collapse">
+                        <li class="component-item">&lt; ordered-list &gt;</li>
+                        <li class="component-item">&lt; unordered-list &gt;</li>
+                        <li class="component-item">&lt; list-item &gt;</li>
+                    </ul>
+                </div>
+                <div class="component-itemlist">
+                    <p>Input</p>
+                    <ul class="component-itemlist-collapse">
+                        <li class="component-item">&lt; textarea &gt;</li>
+                        <li class="component-item">&lt; search-input &gt;</li>
+                        <li class="component-item">&lt; text-input &gt;</li>
+                        <li class="component-item">&lt; email-input &gt;</li>
+                        <li class="component-item">&lt; password-input &gt;</li>
+                        <li class="component-item">&lt; date-input &gt;</li>
+                        <li class="component-item">&lt; number-input &gt;</li>
+                        <li class="component-item">&lt; radio-input &gt;</li>
+                        <li class="component-item">&lt; checkbox-input &gt;</li>
+                    </ul>
+                </div>
+                <div class="component-itemlist">
+                    <p>Button</p>
+                    <ul class="component-itemlist-collapse">
+                        <li class="component-item">&lt; button &gt;</li>
+                        <li class="component-item">&lt; form-submit-button &gt;</li>
+                        <li class="component-item">&lt; form-reset-button &gt;</li>
+                    </ul>
+                </div>
+                <div class="component-itemlist">
+                    <p>Option</p>
+                    <ul class="component-itemlist-collapse">
+                        <li class="component-item">&lt; select &gt;</li>
+                        <li class="component-item">&lt; option &gt;</li>
+                    </ul>
+                </div>
+                <!-- <p id="component-pane-label">Components</p> -->
+            </div>
+            <div id="action-pane">
+                <div id="action-toolbar">
+                    <ul id="action-tool-preprocessing-options">
+                        <li id="select-tool" class="action-tool-option action-tool-option-active"><i
+                                class="fa-solid fa-hand-pointer"></i></li>
+                        <li id="move-tool" class="action-tool-option action-tool-option-active"><i
+                                class="fa-solid fa-up-down-left-right"></i></li>
+                        <li id="drag-tool" class="action-tool-option action-tool-option-active"><i
+                                class="fa-solid fa-diagram-next"></i></li>
+                        <li id="resize-tool" class="action-tool-option action-tool-option-active"><i
+                                class="fa-solid fa-crop-simple"></i></li>
+                        <li id="bring-to-front-tool" class="action-tool-option action-tool-option-active"><i
+                                class="fa-solid fa-bring-front"></i></li>
+                        <li id="send-to-back-tool" class="action-tool-option action-tool-option-active"><i
+                                class="fa-regular fa-send-back"></i></li>
+                        <li id="send-to-back-tool" class="action-tool-option action-tool-option-active"><i
+                                class="fa-regular fa-eye"></i></li>
+                    </ul>
+
+                    <ul id="action-tool-processing-options">
+                        <li id="component-tool" class="action-tool-option action-tool-option-active"><i
+                                class="fa-solid fa-puzzle-piece"></i></li>
+                        <li id="property-tool" class="action-tool-option action-tool-option-inactive"><i
+                                class="fa-solid fa-pen-to-square"></i></li>
+                        <!-- <li class="action-tool-option"><i class="fa-solid fa-link"></i></li> -->
+                        <li id="save-tool" class="action-tool-option action-tool-option-active"><i
+                                class="fa-solid fa-floppy-disk"></i></li>
+                    </ul>
+
+                    <ul id="action-tool-postprocessing-options">
+                        <li id="copy-tool" class="action-tool-option action-tool-option-inactive"><i
+                                class="fa-solid fa-copy"></i></li>
+                        <li id="paste-tool" class="action-tool-option action-tool-option-inactive"><i
+                                class="fa-solid fa-clipboard"></i></li>
+                        <li id="delete-tool" class="action-tool-option action-tool-option-inactive"><i
+                                class="fa-solid fa-trash"></i></li>
+                        <!-- <li class="action-tool-option"><i class="fa-solid fa-rotate-left"></i></li> -->
+                        <!-- <li class="action-tool-option"><i class="fa-solid fa-rotate-right"></i></li> -->
+                    </ul>
+                </div>
+                <div id="action-menu">
+                    <div id="action-menu-logo"><img src="icon/logo.svg" alt="logo"></div>
+                    <div id="save-to-cloud-option" class="action-menu-option menu-option-inactive"><i
+                            class="fa-solid fa-cloud-arrow-up"></i></div>
+                    <div id="new-file-option" class="action-menu-option menu-option-inactive"><i
+                            class="fa-solid fa-file"></i>
+                    </div>
+                    <div id="settings-option" class="action-menu-option menu-option-inactive"><i
+                            class="fa-solid fa-gear"></i>
+                    </div>
+                    <div id="profile-option" class="action-menu-option menu-option-inactive"><i
+                            class="fa-solid fa-user"></i>
+                    </div>
+                    <div id="home-option" class="action-menu-option menu-option-inactive"><i
+                            class="fa-solid fa-house"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="control-pane-button">
+            <i class="fa-sharp fa-solid fa-caret-right"></i>
+            <i class="fa-sharp fa-solid fa-caret-left"></i>
+        </div>
+    </div>
+
+    <div id="output-area">
+        <div id="output-display">
+            <iframe src="" id="display-frame"
+                sandbox="allow-forms allow-modals allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-downloads allow-presentation"
+                allow="accelerometer; camera; encrypted-media; display-capture; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write; web-share"
+                scrolling="auto" allowTransparency="true" allowpaymentrequest="true" allowfullscreen="true"
+                loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div id="resize-bar">
+        <button id="resize-button">
+            <i class="fa-sharp fa-light fa-right-left-large"></i>
+            <i class="fa-sharp fa-solid fa-caret-left"></i>
+        </button>
+    </div>
+
+    <div id="code-area">
+        <div class="code-container">
+            <div class="code-title-bar">
+                <div class="code-title">
+                    <div class="code-title-icon">
+                        <i class="fa-brands fa-html5"></i>
+                        <p>HTML</p>
+                    </div>
+                </div>
+                <div class="code-title-bar-layer"></div>
+            </div>
+            <div class="code-text">
+                <textarea id="html-code"></textarea>
+            </div>
+        </div>
+
+        <div class="code-container">
+            <div class="code-title-bar">
+                <div class="code-title">
+                    <div class="code-title-icon">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <p>CSS</p>
+                    </div>
+                </div>
+                <div class="code-title-bar-layer"></div>
+            </div>
+            <div class="code-text">
+                <textarea id="css-code"></textarea>
+            </div>
+        </div>
+
+        <div class="code-container">
+            <div class="code-title-bar">
+                <div class="code-title">
+                    <div class="code-title-icon">
+                        <i class="fa-brands fa-square-js"></i>
+                        <p>JS</p>
+                    </div>
+                </div>
+                <div class="code-title-bar-layer"></div>
+            </div>
+            <div class="code-text">
+                <textarea id="js-code"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
